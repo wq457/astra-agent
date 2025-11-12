@@ -51,7 +51,7 @@ const useFlowContainerEffect = ({
   const handleDelete = useCallback(() => {
     takeSnapshot();
     lastSelection.nodes = lastSelection?.nodes?.filter(
-      node => node.type !== '开始节点' && node.type !== '结束节点'
+      node => node.nodeType !== 'node-start' && node.nodeType !== 'node-end'
     );
     const edgeIds = lastSelection?.edges?.map(edge => edge?.id);
     const leftEdges = edges.filter(edge => !edgeIds?.includes(edge?.id));
