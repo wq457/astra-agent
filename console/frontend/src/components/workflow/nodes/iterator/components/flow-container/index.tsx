@@ -71,22 +71,24 @@ function index(props): React.ReactElement {
     }
   }, [showIterativeModal, iteratorId, nodes]);
 
-  const handleFullScreen = useMemoizedFn((e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
-    setIteratorId(id);
-    setShowIterativeModal(true);
-    setCurrentStore('iterator');
-    setNodeInfoEditDrawerlInfo({
-      open: false,
-      nodeId: '',
-    });
-    setNode(id, old => {
-      return {
-        ...old,
-        selected: false,
-      };
-    })
-  });
+  const handleFullScreen = useMemoizedFn(
+    (e: React.MouseEvent<HTMLDivElement>) => {
+      e.stopPropagation();
+      setIteratorId(id);
+      setShowIterativeModal(true);
+      setCurrentStore('iterator');
+      setNodeInfoEditDrawerlInfo({
+        open: false,
+        nodeId: '',
+      });
+      setNode(id, old => {
+        return {
+          ...old,
+          selected: false,
+        };
+      });
+    }
+  );
 
   return (
     <div

@@ -87,7 +87,9 @@ const useKeyboardHandlers = ({
   const handleDelete = useMemoizedFn((): void => {
     takeSnapshot();
     lastSelection.nodes = lastSelection?.nodes?.filter(
-      node => node.nodeType !== 'iteration-node-start' && node.nodeType !== 'iteration-node-end'
+      node =>
+        node.nodeType !== 'iteration-node-start' &&
+        node.nodeType !== 'iteration-node-end'
     );
     const edgeIds = lastSelection?.edges?.map(edge => edge?.id);
     const leftEdges = edges.filter(edge => !edgeIds?.includes(edge?.id));
@@ -120,7 +122,10 @@ const useKeyboardHandlers = ({
           if (node?.data?.parentId) {
             return true;
           }
-          return node.nodeType !== 'iteration-node-start' && node.nodeType !== 'iteration-node-end';
+          return (
+            node.nodeType !== 'iteration-node-start' &&
+            node.nodeType !== 'iteration-node-end'
+          );
         });
         try {
           await navigator.clipboard.writeText(

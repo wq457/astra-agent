@@ -415,9 +415,7 @@ export const useFlowCommon = (): UseFlowCommonReturn => {
     state => state.setVersionManagement
   );
   const showToolModal = useFlowsManager(state => state.toolModalInfo.open);
-  const showIterativeModal = useFlowsManager(
-    state => state.showIterativeModal
-  );
+  const showIterativeModal = useFlowsManager(state => state.showIterativeModal);
   const knowledgeModalInfoOpen = useFlowsManager(
     state => state.knowledgeModalInfo.open
   );
